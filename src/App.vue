@@ -6,7 +6,5 @@
   <router-view></router-view>
   <router-view name="ControlSidebar"></router-view>
   <router-view name="Footer"></router-view>
-  
 </template>
-
 <style scoped></style>
