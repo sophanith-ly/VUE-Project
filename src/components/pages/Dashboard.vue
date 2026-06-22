@@ -1,8 +1,5 @@
 
 <template>
-    <Navbar></Navbar>
-    <Sidebar></Sidebar>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="min-height: 594px;">
     <!-- Content Header (Page header) -->
@@ -89,15 +86,4 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-    <ControlSidebar></ControlSidebar>
-    <Footer></Footer>
-
-
     </template>
-<script setup>
-import Navbar from '@/components/includes/Navbar.vue';
-import Sidebar from '@/components/includes/Sidebar.vue';
-import ControlSidebar from '@/components/includes/Controlsidebar.vue';
-import Footer from '@/components/includes/Footer.vue';
-</script>

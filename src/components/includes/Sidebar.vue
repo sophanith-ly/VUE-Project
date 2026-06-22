@@ -67,6 +67,26 @@
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
+          </li> 
+
+          <li class="nav-item">
+            <RouterLink :to="{name: 'Dashboard'}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Dashboard
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </RouterLink>
+          </li>
+
+          <li class="nav-item">
+            <RouterLink :to="{ name: 'Profile'}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Profile
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </RouterLink>
           </li>
         </ul>
       </nav>
