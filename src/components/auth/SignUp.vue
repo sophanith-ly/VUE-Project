@@ -66,7 +66,7 @@
 
      
       <p class="mb-0">
-        <a href="login.html" class="text-center">Already have an account? (Sign In)</a>
+        <a href="login.html" class="text-center">Already have an account. (Sign In)</a>
       </p>
     </div>
     <!-- /.card-body -->
