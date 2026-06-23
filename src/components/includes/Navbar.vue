@@ -133,7 +133,33 @@
           <i class="fas fa-th-large"></i>
         </a>
       </li>
+      <li class="nav-item">
+                <a @click="signOut" class="nav-link" role="button">
+                    <i class="fas fa-sign-out-alt text-danger"></i>
+                </a>
+            </li>
     </ul>
   </nav>
   <!-- /.navbar -->
 </template>
+<script setup>
+import { useRouter } from 'vue-router';
+import Swal from 'sweetalert2';
+const router = useRouter();
+
+async function signOut() {
+    await Swal.fire({
+        title: 'Are you sure?',
+        text: "You will be signed out from the system!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, sign me out!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            return router.push({ name: 'SignOut' });
+        }
+    });
+}
+</script>
