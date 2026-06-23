@@ -1,5 +1,6 @@
 import SignIn from '@/components/auth/SignIn.vue';
 import SignUp from '@/components/auth/SignUp.vue';
+import SignOut from '@/components/auth/SignOut.vue';    
 import Dashboard from '@/components/pages/Dashboard.vue';
 import Profile from '@/components/auth/Profile.vue';
 
@@ -20,6 +21,11 @@ const routes = [
         path: '/signUp',
         name: 'SignUp',
         component: SignUp
+    },
+    {
+        path: '/signOut',
+        name: 'SignOut',
+        component: SignOut
     },
     {
         path: '/dashboard',
