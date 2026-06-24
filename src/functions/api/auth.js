@@ -18,6 +18,3 @@ export async function apiSignOut(token) {
 export async function apiVerify() {
     return await axios.get(APP_API_URL + '/verify');
 }
-export async function apiChangePassword(current_password, new_password, new_password_confirmation) {
-    return await axios.put(APP_API_URL + '/change/password', { current_password, new_password, new_password_confirmation });
-}
