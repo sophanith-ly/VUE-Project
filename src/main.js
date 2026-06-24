@@ -30,24 +30,25 @@ axios.interceptors.request.use((config) => {
     return config;
 });
 
-router.beforeEach(async (to, from) => {
-    const { guarded } = to.meta;
-    if (guarded === undefined) { // if the route is not guarded, we don't need to verify the token
-        return;
+router.beforeEach(async (to, from, next) => {
+    const { requiresAuth, requiresGuest } = to.meta;
+    const userStore = useUserStore();
+
+    // Verify user only if the auth state is not yet known
+    if (requiresAuth && userStore.isAuthenticated === null) {
+        try {
+            const response = await apiVerify();
+            userStore.setState(response.data.user);
+        } catch (error) {
+            userStore.reset();
+        }
     }
 
-    try {
-        const response = await apiVerify();
-        const { data } = response;
-        userStore.setState(data.user);
-    } catch (error) {
-        userStore.reset();
-    }
-
-    if (guarded && !userStore.isAuthenticated) { // if the route is guarded and the user is not authenticated, redirect to signin page
-        return { name: 'SignIn' };
-    }
-    if (!guarded && userStore.isAuthenticated) { // if the route is not guarded and the user is authenticated, redirect to dashboard page
-        return { name: 'Dashboard' };
+    if (requiresAuth && !userStore.isAuthenticated) {
+        next({ name: 'SignIn' });
+    } else if (requiresGuest && userStore.isAuthenticated) {
+        next({ name: 'Dashboard' });
+    } else {
+        next();
     }
 });

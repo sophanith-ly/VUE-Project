@@ -15,17 +15,20 @@ const routes = [
     {
         path: '/',
         name: 'SignIn',
-        component: SignIn
+        component: SignIn,
+        meta: { requiresGuest: true }
     },
     {
         path: '/signUp',
         name: 'SignUp',
-        component: SignUp
+        component: SignUp,
+        meta: { requiresGuest: true }
     },
     {
         path: '/signOut',
         name: 'SignOut',
-        component: SignOut
+        component: SignOut,
+        meta: { requiresAuth: true }
     },
     {
         path: '/dashboard',
@@ -35,8 +38,9 @@ const routes = [
             Sidebar: Sidebar,
             ControlSidebar: ControlSidebar,
             Footer: Footer,
-            default: Dashboard
-        }
+            default: Dashboard,
+        },
+        meta: { requiresAuth: true }
     },
     {
         path: '/profile',
@@ -46,8 +50,9 @@ const routes = [
             Sidebar: Sidebar,
             ControlSidebar: ControlSidebar,
             Footer: Footer,
-            default: Profile
-        }
+            default: Profile,
+        },
+        meta: { requiresAuth: true }
     },
     {
         path: '/:about(.*)*',
